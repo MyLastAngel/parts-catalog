@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"dist" : true,
+			".angular" : true,
+			".vscode" : true,
+			"node_modules": true,
+			"projects/common-lib/node_modules": true
+		},
+	}
+}
