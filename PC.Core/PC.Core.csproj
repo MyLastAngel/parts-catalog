@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyVersion>1.2307.06.1</AssemblyVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Options\" />
+  </ItemGroup>
+
+</Project>
