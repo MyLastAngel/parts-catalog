@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Logging;
 using PC.Authentication.Interfaces;
 using PC.Core.Interfaces;
+using PC.Server.Model;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
@@ -37,22 +38,23 @@ public class AuthenticationController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([Required][NotNull] string login, [Required] string password64)
+
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
         try
         {
-            var user = await _auth.Authenticate(login, password64);
+            var user = await _auth.Authenticate(request.Login, request.Password64);
             return Ok(new
             {
-                login,
+                login = request.Login,
                 name = user.Name,
                 token = _tokenGenerator.Generate(user)
             });
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Неудачная попытка регистрации {login}", login);
-            return Unauthorized(new { message = $"Ошибка регистрации пользователь: '{login}'" });
+            _logger.LogError(ex, "Неудачная попытка регистрации {login}", request.Login);
+            return Unauthorized(new { message = $"Ошибка регистрации пользователь: '{request.Login}'" });
         }
     }
 }

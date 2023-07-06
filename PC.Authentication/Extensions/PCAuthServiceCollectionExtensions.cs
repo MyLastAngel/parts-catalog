@@ -9,7 +9,7 @@ using System;
 
 namespace PC.Authentication.Extensions;
 
-public static class PCAuthenticationServiceCollectionExtensions
+public static class PCAuthServiceCollectionExtensions
 {
     public static void AddPCAuthentication(this IServiceCollection services, ConfigurationManager manager)
     {

@@ -14,5 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\PC.Authentication\PC.Authentication.csproj" />
     <ProjectReference Include="..\PC.Core\PC.Core.csproj" />
+    <ProjectReference Include="..\PC.DB\PC.DB.csproj" />
   </ItemGroup>
 </Project>

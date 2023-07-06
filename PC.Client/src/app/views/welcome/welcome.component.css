@@ -1,0 +1,19 @@
+.p-body
+{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+}
+
+.p-button
+{
+    width: 250px;
+    float: right;
+}
+
+.p-input
+{
+    width: 250px;
+}

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using PC.Authentication.Extensions;
+using PC.DB.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 builder.Services.AddPCAuthentication(builder.Configuration);
+builder.Services.AddPCDataBase(builder.Configuration);
 
 #if DEBUG
 

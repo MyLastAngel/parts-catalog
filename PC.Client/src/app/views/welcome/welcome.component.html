@@ -1,0 +1,20 @@
+<div class="p-body">
+
+    <h2>Добро пожаловать в каталог деталей</h2>
+
+    <mat-form-field class="p-input" appearance="fill">
+        <mat-label>Логин пользователя</mat-label>
+        <input matInput type="text" [(ngModel)]="login">
+    </mat-form-field>
+
+    <mat-form-field class="p-input" appearance="fill">
+        <mat-label>Пароль пользователя</mat-label>
+        <input matInput type="password" [(ngModel)]="password">
+    </mat-form-field>
+
+    <button 
+        mat-raised-button color="primary"
+        class="p-button"
+        title="Войти"
+        (click)="onLogin()">Войти</button>
+</div>
