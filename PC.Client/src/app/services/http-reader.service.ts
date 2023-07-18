@@ -38,15 +38,12 @@ export class HttpReaderService
         return data.login;
     }
 
-    /** @summary Событие изменения состояния авторизации пользователя */
-    public StateChanged : Subject<boolean> = new Subject();
-
     //#endregion
 
     //#region События
 
-    /** @summary Событие изменения состояния сессии */
-    public sessionErrorEmmit : Subject<TypeSessionError> = new Subject();
+    /** @summary Событие изменения состояния авторизации пользователя */
+    public authorizeChanged : Subject<boolean> = new Subject();
 
     //#endregion
 
@@ -70,7 +67,7 @@ export class HttpReaderService
         map(( o : any) => 
         {
             this.token.set(o.token);
-            this.StateChanged.next(this.IsAuthorized);
+            this.authorizeChanged.next(this.IsAuthorized);
 
             return this.IsAuthorized;
         }));
@@ -79,7 +76,7 @@ export class HttpReaderService
     public logout()
     {
         this.token.remove();
-        this.StateChanged.next(this.IsAuthorized);
+        this.authorizeChanged.next(this.IsAuthorized);
     }
 
 
@@ -110,14 +107,7 @@ export class HttpReaderService
     private throwError(err : HttpErrorResponse) : never
     {
         if(err.error.code == SessionErrorCodes.SessionTimeout)
-        {
             this.logout();
-
-            /* this.cookie.delete(this.cookieName);
-            this.cookie.deleteAll(); */
-
-            this.sessionErrorEmmit.next({ code : err.error.code });
-        }
 
         let sMessage = err.message;
         if(err.error.message)

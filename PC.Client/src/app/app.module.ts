@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 import { appRoutes } from './app.routers';
 import { RouterModule } from '@angular/router';
 
-import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
+import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { BASE_URL_INJECTION_TOKEN } from './app.tokens';
 
 import {MatButtonModule} from '@angular/material/button';
